@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Scrapbook</title>
+    <style>
+        /* CSS LANGSUNG DI SINI */
+        :root {
+            --bg-color: #ffffff;
+            --accent-color: #cf2211;
+            --text-color: #1a4a5e;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: var(--text-color);
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .scrapbook {
+            width: 85%;
+            max-width: 350px;
+            height: 500px;
+            background: white;
+            border: 8px solid var(--accent-color);
+            border-radius: 15px;
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .page.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #cf2211;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head> 
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="scrapbook">
+        <div class="page active" id="p1">
+            <h1>Buat Kamu yang Udah Lulus ! </h1>
+            <p>besarkan volumenya, karena disini ada lagu</p>
+            <p>ape nihh???...</p>
+            <button onclick="startCelebration()">Pencet tombolnya</button>
+        </div>
+
+        <div class="page" id="p2">
+            <img src="assets/foto1.jpg" alt="foto 1">
+            <p>Selamat ya udah bebas dari masa sekolah tingkat akhir ini</p>
+            <button onclick="nextPage('p3')">Lanjut →</button>
+        </div>
+
+       <div class="page" id="p3">
+           <img src="assets/foto2.jpg" alt="foto 2">
+            <p>kamu udah berhasil melewati jenjang tingkat akhir secara lancar tanpa hambatan, dan tanpa ada halangan harus putus sekolah </p>
+            <button onclick="nextPage('p4')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p4">
+            <img src="assets/foto3.jpg" alt="foto 3">
+            <p>aku tau sih pas awal, ada konflik sampai kacamata Pak Andrie patah </p>
+            <button onclick="nextPage('p5')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p5">
+            <p>tapi disitu awal cerita kamu bertemu Bu Riska (Ibu saya) </p>
+            <button onclick="nextPage('p6')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p6">
+            <img src="assets/foto4.jpg" alt="foto 4">
+            <p>Terima kasih ya sudah menjadi murid yang membanggakan, membawa prestasi terbaik.  </p>
+            <button onclick="nextPage('p7')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p7">
+            <p>waktu itu orang-orang gak ada yang percaya sama kamu, tapi kamu dipercaya oleh kami sekeluarga.</p> <button
+            
+onclick="nextPage('p8')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p8">
+            <p>sejak kamu kelas 10 sampai kelas 12 ini, Bu Riska selalu bawa cerita tentang kamu. Bukan tentang prestasimu aja. Tapi cerita random lainnya, contoh kamu jaim sama orang lain tapi di depan Bu Riska+tempat sepi kamu kadang joget-joget. Ada lagi pas kamu coret-coret meja pakai Tipe-x bentuk puzzle itu. Dan lain-lain</p> <button
+            
+onclick="nextPage('p9')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p9">
+            <p>sekali lagi terima kasih sudah membanggakan sekolah, dan menjaga kepercayaan Bu Riska. meskipun pas awal kelas 12 kamu kedapetan ujian bersyarat. </p>
+            <button onclick="nextPage('p10')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p8">
+            <p>selamat sudah lulus, tapi ini bukan akhir. melainkan awal dari segala realita kehidupan </p>
+            <button onclick="nextPage('p9')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p9">
+            <p>Ingat !  </p>
+            <button onclick="nextPage('p10')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p10">
+            <img src="assets/foto5.jpg" alt="foto 5">
+            <p>Jadilah orang baik, dan dipercaya </p>
+            
+            <button onclick="nextPage('p11')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p11">
+            <p>selamat atas kelulusanmu, selamat menempuh hidup baru, semoga dilancarkan rezekimu, dimudahkan urusannya, dimudahkan kuliah/kerjanya</p>
+            
+            <button onclick="nextPage('p12')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p12">
+            <p>dan satu lagi pesanku </p>
+            
+            <button onclick="nextPage('p13')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p13">
+            <img src="assets/foto6.jpg" alt="foto 6">
+            <p>nextnya, jangan emosian pas waktu sekolah ya, semoga kamu lebih sabar. dan gak patahin kacamata lagi </p>
+            <button onclick="nextPage('p14')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p14">
+            <p>itu aja kado dari saya, maaf kalo ada yang kurang atau warnanya tidak cocok. dan maaf ya kalo fotonya menurutmu kurang bagus, soalnya Bu Riska Ngirimnya itu, heheh </p>
+            <button onclick="nextPage('p15')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p15">
+            <p>jangan lupa rate </p>
+            <button onclick="nextPage('p16')">Lanjut →</button>
+        </div>
+        
+        <div class="page" id="p16">
+            <p>rate 1-10 kado ini </p>
+        </div>
+       
+    <script>
+        // JAVASCRIPT LANGSUNG DI SINI
+        function startCelebration() {
+            const musik = document.getElementById('bgMusic');
+            if (musik) {
+                musik.play().catch(e => console.log("Izin musik diperlukan"));
+            }
+            nextPage('p2');
+        }
+
+        function nextPage(pageId) {
+            // Sembunyikan semua halaman
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+
+            // Tampilkan halaman target
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+    </script>
+<script src="https://replit-cdn.com/replit-pill/replit-pill.global.js" data-referral-code="nk09ohbrqerk" data-repl-id="9d4eed4c-05bb-4f2e-91cc-14fa88426e77"></script></body>
+</html>
